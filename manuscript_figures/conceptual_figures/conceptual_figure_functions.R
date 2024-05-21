@@ -787,7 +787,6 @@ for (s in siteNames){
 }
 
 
-
 dev.off()
 
 
@@ -815,25 +814,11 @@ dev.off()
 
 
 
-makeFigure1site("010371_Western_Gap_Site_10371", repsitenames = EPrepsites)
-makeFigure1site("007843_HotDeserts_Site_7843", repsitenames = EPrepsites)
-makeFigure1site("005743_ColdDeserts_Site_5743", repsitenames = EPrepsites)
 
 
 
-siteNames <- c(#"010274_NorthernMixedSubset_Site_10274",
-  "009925_NorthernMixedSubset_Site_9925",
-  "008434_Western_Gap_Site_8434",
-  "007999_Western_Gap_Site_7999",
-  "008000_Western_Gap_Site_8000")
 
-for (s in siteNames){
-  
-  makeFigure1site(sitename=s, repsitenames = EPrepsites)
-  
-}
 
-makeFigure1site(sitename="008000_Western_Gap_Site_8000", repsitenames = repsitenames)
 
 
 
@@ -842,196 +827,15 @@ makeFigure1site(sitename="008000_Western_Gap_Site_8000", repsitenames = repsiten
 
 
 
-makeFigure1site("007843_HotDeserts_Site_7843", repsitenames = repsitenames)
 
 
-EPrepsites <- repsitenames
-EPrepsites[c(13:17),4] <- siteNames
-EPrepsites[c(13:17),5] <- siteNames
-EPrepsites[c(13:17),3] <- c(13:17)
-EPrepsites[c(13:17),6] <- c(-97.71875, -97.40625, -97.28125, -97.28125, -97.21875)
-EPrepsites[c(13:17),7] <- c(45.96875, 46.09375, 46.28125, 46.40625, 46.40625)
 
 
 
 
-sitename <- "02468_CaliforniaAnnuals_Site_2468"
 
-library(stars)
-st_dimensions(tdd_hist)
-tdd_hist
 
-sum(st_area(simple_mask_outline(tdd_hist, alpha = find_stars_min(tdd_hist), keep = 1))/10^6)
 
 
-makeFigure1site("02468_CaliforniaAnnuals_Site_2468", repsitenames = repsitenames)
 
-
-
-
-
-
-
-
-
-
-sitename <- "002544_HotDeserts_Site_2544"
-
-
-
-
-
-
-
-
-
-
-?rollmean
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#~~~~~~~~~ Legend ~~~~~~~~~~
-par(mar=c(0, 2, 0, 3))
-
-x <- c(1:3)
-y <- c(1:3)
-plot(y ~ x, xaxt = 'n', bty = "n", yaxt = 'n', pch = '', ylab = '', xlab = '', lwd = 0.1)
-rect(xleft = c(-0.5), ybottom = c(2.15), xright = c(2.4), ytop = c(3.5), col = "gray95", lwd = 0)
-
-lines(x = c(1.05,1.35), y = c(2.9,2.9), type = "l", col = temperatureCOLOR, lwd = 4)
-mtext("Mean Daily\nTemperature", side=3, at = c(1.5), adj=0, col="black", font=2, padj = 1, line = -1, cex = 0.8)
-
-lines(x = c(1.05,1.35), y = c(2.62,2.62), type = "l", col = mintemperatureCOLOR, lwd = 4)
-mtext("Minimum Daily\nTemperature", side=3, at = c(1.5), adj=0, col="black", font=2, padj = 1, line = -4, cex = 0.8)
-
-lines(x = c(1.05,1.35), y = c(2.33,2.33), type = "l", col = precipCOLOR, lwd = 4)
-mtext("Mean Daily\nPrecipitation", side=3, at = c(1.5), adj=0, col="black", font=2, padj = 1, line = -7, cex = 0.8)
-
-
-
-#~~~~~~~~~ Legend ~~~~~~~~~~
-#new empty plot
-par(mar=c(0, 2, 0, 3))
-
-x <- c(1:3)
-y <- c(1:3)
-plot(y ~ x, xaxt = 'n', bty = "n", yaxt = 'n', pch = '', ylab = '', xlab = '', lwd = 0.1)
-#rectangle for legend
-rect(xleft = c(0), ybottom = c(2.27), xright = c(2.6), ytop = c(3.5), col = "gray95", lwd = 0) 
-
-#Shallow soils label
-lines(x = c(1.05,1.35), y = c(2.96,2.96), type = "l", col=soilCOLORS[4], lwd = 4)
-mtext("Shallow Soils", side=3, at = c(1.5), line=-1, col="black", font=2, padj = 1, adj = 0, cex = 0.8)
-
-
-#Deep soils label
-lines(x = c(1.05,1.35), y = c(2.58,2.58), type = "l", col=soilCOLORS[1], lwd = 4)
-mtext("Deep Soils", side=3, at = c(1.5), line=-5, col="black", font=2, padj = 1, adj = 0, cex = 0.8)
-
-#SWA label
-lines(x = c(1.05,1.35), y = c(2.40,2.40), type = "l", col = precipCOLOR, lwd = 4)
-mtext("Soil Water Availability (mm)", side=3, at = c(1.5), adj=0, col="black", font=2, padj = 1, line = -7, cex = 0.8)
-
-
-#~~~~~~~~~ Legend ~~~~~~~~~~
-#new empty plot
-par(mar=c(0, 2, 0, 2))
-
-x <- c(1:3)
-y <- c(1:3)
-plot(y ~ x, xaxt = 'n', bty = "n", yaxt = 'n', pch = '', ylab = '', xlab = '', lwd = 0.1,  xaxs = "i", yaxs = "i")
-#rectangle for legend
-rect(xleft = c(0), ybottom = c(2.1), xright = c(2.6), ytop = c(3.5), col = "gray95", lwd = 0) 
-
-#PET label
-lines(x = c(1.1,1.35), y = c(2.9,2.9), type = "l", col=PET_COLOR, lwd = 4)
-mtext("Potential Evapo-Transpiration", side=3, at = c(1.5), line=-1, col="black", font=2, padj = 1, adj = 0, cex = 0.8)
-
-#AET label
-lines(x = c(1.1,1.35), y = c(2.72,2.72), type = "l", col = AET_COLOR, lwd = 4)
-mtext("Actual Evapo-Transpiration", side=3, at = c(1.5), line=-3, col="black", font=2, padj = 1, adj = 0, cex = 0.8)
-
-#CWD label
-lines(x = c(1.1,1.35), y = c(2.56,2.56), type = "l", col = CWD_COLOR, lwd = 4)
-mtext("Climatic Water Deficit", side=3, at = c(1.5), adj=0, col="black", font=2, padj = 1, line = -5, cex = 0.8)
-
-#10-day max label
-lines(x = c(1.15,1.15), y = c(2.22,2.35), type = "l", col = "#9B2226", lwd = 1.5, lty = 2)
-lines(x = c(1.28,1.28), y = c(2.22,2.35), type = "l", col = "#9B2226", lwd = 1.5, lty = 2)
-mtext("Timing of Climatic Water\nDeficit (mm) 10-Day Max", side=3, at = c(1.5), adj=0, col="black", font=2, padj = 1, line = -7.5, cex = 0.8)
-
-
-#~~~~~~~~~ Legend ~~~~~~~~~~
-#new empty plot
-par(mar=c(0, 2, 0, 1))
-
-x <- c(1:3)
-y <- c(1:3)
-plot(y ~ x, xaxt = 'n', bty = "n", yaxt = 'n', pch = '', ylab = '', xlab = '', lwd = 0.1)
-#rectangle for legend
-rect(xleft = c(0), ybottom = c(2.1), xright = c(2.2), ytop = c(3.5), col = "gray95", lwd = 0) 
-
-#TDD label
-lines(x = c(1.05,1.3), y = c(2.96,2.96), type = "l", col="black", lwd = 4)
-mtext("Total Degree Days", side=3, at = c(1.4), line=-1, col="black", font=2, padj = 1, adj = 0, cex = 0.8)
-
-#NDD label
-lines(x = c(1.05,1.3), y = c(2.78,2.78), type = "l", col = neutralCOLOR, lwd = 4)
-mtext("Neutral Degree Days", side=3, at = c(1.4), line=-3, col="black", font=2, padj = 1, adj = 0, cex = 0.8)
-
-#DDD label
-lines(x = c(1.05,1.3), y = c(2.60,2.60), type = "l", col = dryCOLOR, lwd = 4)
-mtext("Dry Degree Days", side=3, at = c(1.4), adj=0, col="black", font=2, padj = 1, line = -5, cex = 0.8)
-
-#WDD label
-lines(x = c(1.05,1.3), y = c(2.42,2.42), type = "l", col = wetCOLOR, lwd = 4)
-mtext("Wet Degree Days", side=3, at = c(1.4), adj=0, col="black", font=2, padj = 1, line = -7, cex = 0.8)
-
-#Recruitment period label
-rect(xleft = 1.05, ybottom = 2.15, xright = 1.3, ytop = 2.25, border = "forestgreen", lwd = 1.5, lty = 2)
-mtext("Recruitment Period", side=3, at = c(1.4), adj=0, col="black", font=2, padj = 1, line = -9, cex = 0.8)
-
-
-
-
-
-
-
-#plot(PPT_Mean_monthly$x ~ Tmean_Mean_monthly$x,  xlab="", type="n", yaxt='n',  xaxt='n', ylab="",  xaxs = "i", yaxs = "i",)
-#abline(a = lm(PPT_Mean_monthly$x ~ Tmean_Mean_monthly$x)[[1]][[2]], b = lm(PPT_Mean_monthly$x ~ Tmean_Mean_monthly$x)[[1]][[1]])
-box()
-#rect(xleft = min(x*2), xright = max(x), ybottom = min(x), ytop = max(x), border = "black", lwd = 1, col = "white")
-#rect(xleft = min(x*2), xright = max(x), ybottom = max(x*0.75), ytop = max(x), border = "black", lwd = 1)
-mtext("Monthly Correlation\nwith Temperature", side = 1, line = -10, font = 2, cex = 0.8)
-
-rect(xleft = min(x*2), xright = max(x), ybottom = min(x), ytop = min(x*2), border = "black", lwd = 1)
-mtext("Precip", side = 1, line = -1, font = 2, cex = 0.8, at = max(x*0.5), adj = 0)
-
-rect(xleft = min(x), xright = max(x), ybottom = min(x*2), ytop = max(x*0.75), border = "black", lwd = 1)
-mtext("Temp", side = 2, line = -1, font = 2, cex = 0.8, at = max(x*0.5), adj = 0)
-
-mtext(paste("r =",round(mean(as.numeric(sim_metrics$PPTseas[-c(1,2)])), 2)), side = 1, line = -10, font = 2, at = max(x*0.75))
-rect(xleft = min(Tmean_Mean_monthly$x), xright = max(Tmean_Mean_monthly$x), ybottom = -max(PPT_Mean_monthly$x*0.1), ytop = min(PPT_Mean_monthly$x), border = "black", lwd = 1, col = "white")
-
-
-#text(x = 2, y = 2, labels = "Temp & Precip", font = 2, cex = 1, pos = 4)
-#text(x = 5, y = max(PlotLimits*2/30*0.925), labels = paste("Monthly Corr =", round(mean(as.numeric(sim_metrics$PPTseas[-c(1,2)])), 2)), font = 2, cex = 1, pos = 4)
 
